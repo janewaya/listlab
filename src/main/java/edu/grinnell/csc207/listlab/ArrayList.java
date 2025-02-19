@@ -22,6 +22,7 @@ public class ArrayList {
     private void ensureCapacity() {
         if (this.size == this.arr.length) {
             int[] result = Arrays.copyOf(this.arr, this.arr.length*2);
+            this.arr = result;
         }
     }
           
