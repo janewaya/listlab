@@ -1,23 +1,45 @@
+
 package edu.grinnell.csc207.listlab;
 
+import java.util.Arrays;
 /**
  * An array-based implementation of the list ADT.
  */
 public class ArrayList {
+    
+    private int size; //actual number of the elements in the arr
+    private int[] arr; //capacity is the length of the arr
+    
+    private static final int INITIAL_SIZE = 8;
+    /**
+     * Construct an ArrayList with default values.
+     */
+    public ArrayList() {
+        this.size = 0;
+        this.arr = new int[INITIAL_SIZE];
+    }     
+            
+    private void ensureCapacity() {
+        if (this.size == this.arr.length) {
+            int[] result = Arrays.copyOf(this.arr, this.arr.length*2);
+        }
+    }
+          
     /**
      * Adds <code>value</code> to the end of the list
      * 
      * @param value the value to add to the end of the list
      */
     public void add(int value) {
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        ensureCapacity();
+        this.arr[this.size++] = value;
     }
 
     /**
      * @return the number of elements in the list
      */
     public int size() {
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return this.size;
     }
 
     /**
@@ -25,7 +47,7 @@ public class ArrayList {
      * @return the value at the specified <code>index</code>
      */
     public int get(int index) {
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        return this.arr[index];
     }
 
     /**
@@ -35,6 +57,11 @@ public class ArrayList {
      * @return the element at <code>index</code>
      */
     public int remove(int index) {
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        int value = this.arr[index];
+        for (int i = index; i < (this.size - 1); i++){
+            this.arr[i] = this.arr[i + 1];
+        }
+        this.size--;
+        return value;
     }
 }

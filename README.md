@@ -1,9 +1,7 @@
 # List Implementation lab
 
-Authors: (_TODO: fill in names here!_)
-
+Authors: Tiffany Tang, Alex
 ## Resources
 
-*   (_TODO: fill in resources here!_)
-*   ...
-*   ...
+*  This lab is instructed by : 
+https://osera.cs.grinnell.edu/ttap/data-structures-labs/list-implementation.html
